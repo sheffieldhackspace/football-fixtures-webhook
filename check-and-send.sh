@@ -26,7 +26,7 @@ fi
 echo "get fixtures…" >> /dev/stderr
 icsdata=$(
   curl -s --fail \
-    "https://fixtur.es/en/team/sheffield-united-fc/home"
+    "https://ics.fixtur.es/v2/home/sheffield-united-fc.ics"
 )
 if [[ "${?}" != 0 ]]; then
   echo "something went wrong with CURL !" >> /dev/stderr
@@ -36,7 +36,7 @@ fi
 # get all events within the next TIME
 echo "check for any within time (next ${CHECK_AHEAD_TIME} hrs)…" > /dev/stderr
 games=$(
-  cat fixtures.ics \
+  echo "${icsdata}" \
     | awk -v CHECK_AHEAD_TIME="${CHECK_AHEAD_TIME}" \
       -F":" -f parse_ics.awk | jq -c
 )
