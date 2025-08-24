@@ -3,6 +3,8 @@
 Check football fixtures list for any fixtures in the near future.
 If any are found, send a Discord webhook for each.
 
+Pulls fixtures from <https://fixtur.es/en/team/sheffield-united-fc/home>
+
 ![screenshot of Discord webhook message showing an incoming football fixture](./example.png)
 
 ## Setup
