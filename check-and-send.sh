@@ -34,7 +34,7 @@ if [[ "${?}" != 0 ]]; then
 fi
 
 # get all events within the next TIME
-echo "check for any within time (next ${CHECK_AHEAD_TIME} hrs)…" > /dev/stderr
+echo "check for any within time (next ${CHECK_AHEAD_TIME} hrs)…" >> /dev/stderr
 games=$(
   echo "${icsdata}" \
     | awk -v CHECK_AHEAD_TIME="${CHECK_AHEAD_TIME}" \
@@ -88,7 +88,7 @@ while read -r game; do
 		"${WEBHOOK_URL}" -d "${data}"
 	)
 	if [[ "${?}" != 0 ]] || [[ "${res}" != 204 ]]; then
-		echo "something went wrong trying to send webhook!" > /dev/stderr
+		echo "something went wrong trying to send webhook!" >> /dev/stderr
 		exit 1
 	fi
 done <<< $(echo "${games}" | jq -c '.[]')
