@@ -3,6 +3,8 @@
 Check football fixtures list for any fixtures in the near future.
 If any are found, send a Discord webhook for each.
 
+![screenshot of Discord webhook message showing an incoming football fixture](./example.png)
+
 ## Setup
 
 To start, generate a GitHub webhook, then follow these vague steps:
