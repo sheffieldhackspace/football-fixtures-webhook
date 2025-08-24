@@ -20,7 +20,7 @@ $1=="SUMMARY"{SUMMARY=$2}
 $1=="DTSTAMP"{DTSTAMP=$2}
 $1=="CREATED"{CREATED=$2}
 $1=="LAST-MODIFIED"{LASTMODIFIED=$2}
-$1=="END"{
+$1=="END" && $2=="VEVENT"{
 	# parsing date format to timestamp
   datespec_fmt = "\\1 \\2 \\3 \\4 \\5 \\6"
   start_ts = mktime(gensub(/(....)(..)(..)T(..)(..)(..)Z/, datespec_fmt, 1, DTSTART))
